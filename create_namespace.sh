@@ -92,7 +92,6 @@ export SA_SECRET_TOKEN=$(kubectl -n $NAMESPACE_NAME get secret/$USER-admin-secre
 export CLUSTER_NAME=$(kubectl config current-context)
 export CURRENT_CLUSTER=$(kubectl config view --raw -o=go-template='{{range .contexts}}{{if eq .name "'''${CLUSTER_NAME}'''"}}{{ index .context "cluster" }}{{end}}{{end}}')
 
-
 cat << EOF > kc_$NAMESPACE_NAME.kubeconfig
 apiVersion: v1
 kind: Config
